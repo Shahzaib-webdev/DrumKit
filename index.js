@@ -3,5 +3,5 @@ for(let i=0;i<=6;i++){
 }
 
 function clickHandle(){
-    alert("I got clicked");
+    var audio = new AUdio("/sounds/crash.mp3")
 }
