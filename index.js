@@ -1,3 +1,5 @@
+// detecting button press
+
 let drumLength = document.querySelectorAll(".drum").length;
 for(let i=0;i<drumLength;i++){
     document.querySelectorAll(".drum")[i].addEventListener("click", clickEvent);
@@ -5,7 +7,23 @@ for(let i=0;i<drumLength;i++){
 function clickEvent(){
 
     let keys = this.innerHTML;
-    switch(keys){
+    keyPress(keys);
+    buttonAnimation(keys);
+
+} 
+
+
+
+// for responding to keypress or keyboard press
+
+
+document.addEventListener("keypress", function(event){
+    keyPress(event.key);
+    buttonAnimation(event.key);
+});
+function keyPress(key){
+
+    switch(key){
         case "w":
             var audio = new Audio("sounds/crash.mp3");
             audio.play();
@@ -37,5 +55,16 @@ function clickEvent(){
             break;
     }
     
+}
 
-} 
+
+// onclick button animation 
+
+function buttonAnimation (currentKey)
+{
+    var activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");
+    setTimeout ( function() {
+        activeButton.classList.remove("pressed");
+    }, 200 )
+}
