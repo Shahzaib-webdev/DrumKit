@@ -1,7 +1,6 @@
-for(let i=0;i<=6;i++){
-    document.querySelectorAll("button")[i].addEventListener("click", clickHandle);
+for(let i=0;i<document.querySelectorAll(".drum").length;i++){
+    document.querySelectorAll(".drum")[i].addEventListener("click", clickEvent);
 }
-
-function clickHandle(){
-    var audio = new AUdio("/sounds/crash.mp3")
-}
+function clickEvent(){
+    alert("hello");
+} 
